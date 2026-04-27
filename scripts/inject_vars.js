@@ -33,27 +33,34 @@ function replaceInDir(dir, replacements) {
         return;
     }
 
-    const files = fs.readdirSync(dir);
-    files.forEach(file => {
-        const filePath = path.join(dir, file);
-        const stats = fs.statSync(filePath);
+    // Use withFileTypes to get Dirent objects directly, avoiding separate statSync calls
+    // and fixing CodeQL js/file-system-race security warnings.
+    const entries = fs.readdirSync(dir, { withFileTypes: true });
 
-        if (stats.isDirectory()) {
+    entries.forEach(entry => {
+        const entryName = entry.name;
+        const filePath = path.join(dir, entryName);
+
+        if (entry.isDirectory()) {
             replaceInDir(filePath, replacements);
-        } else if (file.endsWith('.js') || file.endsWith('.html') || file.endsWith('.webmanifest')) {
-            let content = fs.readFileSync(filePath, 'utf8');
-            let modified = false;
+        } else if (entry.isFile() && (entryName.endsWith('.js') || entryName.endsWith('.html') || entryName.endsWith('.webmanifest'))) {
+            try {
+                let content = fs.readFileSync(filePath, 'utf8');
+                let modified = false;
 
-            Object.entries(replacements).forEach(([pattern, value]) => {
-                if (content.includes(pattern)) {
-                    content = content.split(pattern).join(value);
-                    modified = true;
+                Object.entries(replacements).forEach(([pattern, value]) => {
+                    if (content.includes(pattern)) {
+                        content = content.split(pattern).join(value);
+                        modified = true;
+                    }
+                });
+
+                if (modified) {
+                    fs.writeFileSync(filePath, content, 'utf8');
+                    console.log(`   ✅ Injected: ${path.relative(process.cwd(), filePath)}`);
                 }
-            });
-
-            if (modified) {
-                fs.writeFileSync(filePath, content, 'utf8');
-                console.log(`   ✅ Injected: ${path.relative(process.cwd(), filePath)}`);
+            } catch (err) {
+                console.error(`   ❌ Failed to process ${filePath}: ${err.message}`);
             }
         }
     });
