@@ -1,0 +1,54 @@
+
+Testing /home/runner/work/nodeauth-worker-dev/nodeauth-worker-dev...
+
+Organization:      nap0o
+Package manager:   npm
+Target file:       package-lock.json
+Project name:      nodeauth
+Open source:       no
+Project path:      /home/runner/work/nodeauth-worker-dev/nodeauth-worker-dev
+Licenses:          enabled
+
+✔ Tested /home/runner/work/nodeauth-worker-dev/nodeauth-worker-dev for known issues, no vulnerable paths found.
+
+-------------------------------------------------------
+
+Testing /home/runner/work/nodeauth-worker-dev/nodeauth-worker-dev...
+
+Organization:      nap0o
+Package manager:   npm
+Target file:       backend/package-lock.json
+Project name:      backend
+Open source:       no
+Project path:      /home/runner/work/nodeauth-worker-dev/nodeauth-worker-dev
+Licenses:          enabled
+
+✔ Tested 139 dependencies for known issues, no vulnerable paths found.
+
+-------------------------------------------------------
+
+Testing /home/runner/work/nodeauth-worker-dev/nodeauth-worker-dev...
+
+Tested 377 dependencies for known issues, found 1 issue, 1 vulnerable path.
+
+
+Issues with no direct upgrade or patch:
+  ✗ Improperly Controlled Modification of Dynamically-Determined Object Attributes [High Severity][https://security.snyk.io/vuln/SNYK-JS-AXIOS-16299921] in axios@1.15.1
+    introduced by @walletconnect/ethereum-provider@2.23.9 > @reown/appkit@1.8.17-wc-circular-dependencies-fix.0 > @reown/appkit-pay@1.8.17-wc-circular-dependencies-fix.0 > @reown/appkit-utils@1.8.17-wc-circular-dependencies-fix.0 > @base-org/account@2.4.0 > @coinbase/cdp-sdk@1.46.1 > axios@1.15.1
+  This issue was fixed in versions: 1.15.2
+
+
+
+Organization:      nap0o
+Package manager:   npm
+Target file:       frontend/package-lock.json
+Project name:      frontend
+Open source:       no
+Project path:      /home/runner/work/nodeauth-worker-dev/nodeauth-worker-dev
+Licenses:          enabled
+
+
+Tested 3 projects, 1 contained vulnerable paths.
+
+
+

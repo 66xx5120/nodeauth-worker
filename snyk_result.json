@@ -1,0 +1,579 @@
+[
+  {
+    "vulnerabilities": [],
+    "ok": true,
+    "dependencyCount": 0,
+    "org": "nap0o",
+    "policy": "# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.\nversion: v1.25.1\nignore: {}\npatch: {}\n",
+    "isPrivate": true,
+    "licensesPolicy": {
+      "severities": {},
+      "orgLicenseRules": {
+        "AGPL-1.0": {
+          "licenseType": "AGPL-1.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "AGPL-3.0": {
+          "licenseType": "AGPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "Artistic-1.0": {
+          "licenseType": "Artistic-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "Artistic-2.0": {
+          "licenseType": "Artistic-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CDDL-1.0": {
+          "licenseType": "CDDL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CPOL-1.02": {
+          "licenseType": "CPOL-1.02",
+          "severity": "high",
+          "instructions": ""
+        },
+        "EPL-1.0": {
+          "licenseType": "EPL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "GPL-2.0": {
+          "licenseType": "GPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "GPL-3.0": {
+          "licenseType": "GPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "LGPL-2.0": {
+          "licenseType": "LGPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-2.1": {
+          "licenseType": "LGPL-2.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-3.0": {
+          "licenseType": "LGPL-3.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-1.1": {
+          "licenseType": "MPL-1.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-2.0": {
+          "licenseType": "MPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MS-RL": {
+          "licenseType": "MS-RL",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "SimPL-2.0": {
+          "licenseType": "SimPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        }
+      }
+    },
+    "packageManager": "npm",
+    "ignoreSettings": {
+      "adminOnly": false,
+      "reasonRequired": false,
+      "disregardFilesystemIgnores": false
+    },
+    "summary": "No known vulnerabilities",
+    "filesystemPolicy": false,
+    "uniqueCount": 0,
+    "projectName": "nodeauth",
+    "foundProjectCount": 2,
+    "displayTargetFile": "package-lock.json",
+    "hasUnknownVersions": false,
+    "path": "/home/runner/work/nodeauth-worker-dev/nodeauth-worker-dev"
+  },
+  {
+    "vulnerabilities": [],
+    "ok": true,
+    "dependencyCount": 139,
+    "org": "nap0o",
+    "policy": "# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.\nversion: v1.25.1\nignore: {}\npatch: {}\n",
+    "isPrivate": true,
+    "licensesPolicy": {
+      "severities": {},
+      "orgLicenseRules": {
+        "AGPL-1.0": {
+          "licenseType": "AGPL-1.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "AGPL-3.0": {
+          "licenseType": "AGPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "Artistic-1.0": {
+          "licenseType": "Artistic-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "Artistic-2.0": {
+          "licenseType": "Artistic-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CDDL-1.0": {
+          "licenseType": "CDDL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CPOL-1.02": {
+          "licenseType": "CPOL-1.02",
+          "severity": "high",
+          "instructions": ""
+        },
+        "EPL-1.0": {
+          "licenseType": "EPL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "GPL-2.0": {
+          "licenseType": "GPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "GPL-3.0": {
+          "licenseType": "GPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "LGPL-2.0": {
+          "licenseType": "LGPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-2.1": {
+          "licenseType": "LGPL-2.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-3.0": {
+          "licenseType": "LGPL-3.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-1.1": {
+          "licenseType": "MPL-1.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-2.0": {
+          "licenseType": "MPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MS-RL": {
+          "licenseType": "MS-RL",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "SimPL-2.0": {
+          "licenseType": "SimPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        }
+      }
+    },
+    "packageManager": "npm",
+    "ignoreSettings": {
+      "adminOnly": false,
+      "reasonRequired": false,
+      "disregardFilesystemIgnores": false
+    },
+    "summary": "No known vulnerabilities",
+    "filesystemPolicy": false,
+    "uniqueCount": 0,
+    "projectName": "backend",
+    "foundProjectCount": 2,
+    "displayTargetFile": "backend/package-lock.json",
+    "hasUnknownVersions": false,
+    "path": "/home/runner/work/nodeauth-worker-dev/nodeauth-worker-dev"
+  },
+  {
+    "vulnerabilities": [
+      {
+        "id": "SNYK-JS-AXIOS-16299921",
+        "title": "Improperly Controlled Modification of Dynamically-Determined Object Attributes",
+        "CVSSv3": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:H/A:N/E:P",
+        "credit": [
+          "August829"
+        ],
+        "semver": {
+          "vulnerable": [
+            ">=1.0.0 <1.15.2"
+          ]
+        },
+        "exploit": "Proof of Concept",
+        "fixedIn": [
+          "1.15.2"
+        ],
+        "patches": [],
+        "insights": {
+          "triageAdvice": null
+        },
+        "language": "js",
+        "severity": "high",
+        "cvssScore": 8.3,
+        "functions": [],
+        "malicious": false,
+        "isDisputed": false,
+        "moduleName": "axios",
+        "references": [
+          {
+            "url": "https://github.com/axios/axios/commit/70302b6c9008b3d5242c9685a4c01151e53a4c74",
+            "title": "GitHub Commit"
+          },
+          {
+            "url": "https://github.com/axios/axios/security/advisories/GHSA-3w6x-2g7m-8v23",
+            "title": "Maintainer's Advisory"
+          }
+        ],
+        "cvssDetails": [],
+        "cvssSources": [
+          {
+            "type": "primary",
+            "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:L/VI:H/VA:N/SC:N/SI:N/SA:N/E:P",
+            "assigner": "Snyk",
+            "severity": "high",
+            "baseScore": 8.3,
+            "cvssVersion": "4.0",
+            "modificationTime": "2026-04-26T09:59:46.859342Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:H/A:N/E:P",
+            "assigner": "Snyk",
+            "severity": "medium",
+            "baseScore": 6.5,
+            "cvssVersion": "3.1",
+            "modificationTime": "2026-04-26T09:59:46.859342Z"
+          }
+        ],
+        "description": "## Overview\n[axios](https://www.npmjs.com/package/axios) is a promise-based HTTP client for the browser and Node.js.\n\nAffected versions of this package are vulnerable to Improperly Controlled Modification of Dynamically-Determined Object Attributes through the `transformResponse` and request serialization paths in the defaults configuration. An attacker can influence JSON parsing and request handling by supplying a crafted object with inherited `parseReviver`, `responseType`, `transitional`, `env`, or `formSerializer` properties, causing Axios to read attacker-controlled prototype values during response parsing or form encoding. This can lead to malformed response processing, unexpected parser behavior, and application-level data corruption or denial-of-service in code that passes untrusted config objects to Axios.\n## Remediation\nUpgrade `axios` to version 1.15.2 or higher.\n## References\n- [GitHub Commit](https://github.com/axios/axios/commit/70302b6c9008b3d5242c9685a4c01151e53a4c74)\n- [Maintainer's Advisory](https://github.com/axios/axios/security/advisories/GHSA-3w6x-2g7m-8v23)\n",
+        "epssDetails": {
+          "percentile": "0.08469",
+          "probability": "0.00030",
+          "modelVersion": "v2025.03.14"
+        },
+        "identifiers": {
+          "CVE": [
+            "CVE-2026-42044"
+          ],
+          "CWE": [
+            "CWE-915"
+          ],
+          "GHSA": [
+            "GHSA-3w6x-2g7m-8v23"
+          ]
+        },
+        "packageName": "axios",
+        "proprietary": false,
+        "creationTime": "2026-04-26T09:59:46.630829Z",
+        "functions_new": [],
+        "alternativeIds": [],
+        "disclosureTime": "2026-04-24T19:20:25.586000Z",
+        "exploitDetails": {
+          "sources": [
+            "Snyk"
+          ],
+          "maturityLevels": [
+            {
+              "type": "secondary",
+              "level": "Proof of Concept",
+              "format": "CVSSv3"
+            },
+            {
+              "type": "primary",
+              "level": "Proof of Concept",
+              "format": "CVSSv4"
+            }
+          ]
+        },
+        "packageManager": "npm",
+        "publicationTime": "2026-04-26T09:59:46.824443Z",
+        "severityBasedOn": "CVSS",
+        "modificationTime": "2026-04-26T09:59:46.859342Z",
+        "socialTrendAlert": false,
+        "severityWithCritical": "high",
+        "from": [
+          "frontend@0.0.0",
+          "@walletconnect/ethereum-provider@2.23.9",
+          "@reown/appkit@1.8.17-wc-circular-dependencies-fix.0",
+          "@reown/appkit-pay@1.8.17-wc-circular-dependencies-fix.0",
+          "@reown/appkit-utils@1.8.17-wc-circular-dependencies-fix.0",
+          "@base-org/account@2.4.0",
+          "@coinbase/cdp-sdk@1.46.1",
+          "axios@1.15.1"
+        ],
+        "upgradePath": [],
+        "isUpgradable": false,
+        "isPatchable": false,
+        "name": "axios",
+        "version": "1.15.1"
+      }
+    ],
+    "ok": false,
+    "dependencyCount": 377,
+    "org": "nap0o",
+    "policy": "# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.\nversion: v1.25.1\nignore: {}\npatch: {}\n",
+    "isPrivate": true,
+    "licensesPolicy": {
+      "severities": {},
+      "orgLicenseRules": {
+        "AGPL-1.0": {
+          "licenseType": "AGPL-1.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "AGPL-3.0": {
+          "licenseType": "AGPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "Artistic-1.0": {
+          "licenseType": "Artistic-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "Artistic-2.0": {
+          "licenseType": "Artistic-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CDDL-1.0": {
+          "licenseType": "CDDL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CPOL-1.02": {
+          "licenseType": "CPOL-1.02",
+          "severity": "high",
+          "instructions": ""
+        },
+        "EPL-1.0": {
+          "licenseType": "EPL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "GPL-2.0": {
+          "licenseType": "GPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "GPL-3.0": {
+          "licenseType": "GPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "LGPL-2.0": {
+          "licenseType": "LGPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-2.1": {
+          "licenseType": "LGPL-2.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-3.0": {
+          "licenseType": "LGPL-3.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-1.1": {
+          "licenseType": "MPL-1.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-2.0": {
+          "licenseType": "MPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MS-RL": {
+          "licenseType": "MS-RL",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "SimPL-2.0": {
+          "licenseType": "SimPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        }
+      }
+    },
+    "packageManager": "npm",
+    "ignoreSettings": {
+      "adminOnly": false,
+      "reasonRequired": false,
+      "disregardFilesystemIgnores": false
+    },
+    "summary": "1 vulnerable dependency path",
+    "remediation": {
+      "unresolved": [
+        {
+          "id": "SNYK-JS-AXIOS-16299921",
+          "title": "Improperly Controlled Modification of Dynamically-Determined Object Attributes",
+          "CVSSv3": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:H/A:N/E:P",
+          "credit": [
+            "August829"
+          ],
+          "semver": {
+            "vulnerable": [
+              ">=1.0.0 <1.15.2"
+            ]
+          },
+          "exploit": "Proof of Concept",
+          "fixedIn": [
+            "1.15.2"
+          ],
+          "patches": [],
+          "insights": {
+            "triageAdvice": null
+          },
+          "language": "js",
+          "severity": "high",
+          "cvssScore": 8.3,
+          "functions": [],
+          "malicious": false,
+          "isDisputed": false,
+          "moduleName": "axios",
+          "references": [
+            {
+              "url": "https://github.com/axios/axios/commit/70302b6c9008b3d5242c9685a4c01151e53a4c74",
+              "title": "GitHub Commit"
+            },
+            {
+              "url": "https://github.com/axios/axios/security/advisories/GHSA-3w6x-2g7m-8v23",
+              "title": "Maintainer's Advisory"
+            }
+          ],
+          "cvssDetails": [],
+          "cvssSources": [
+            {
+              "type": "primary",
+              "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:L/VI:H/VA:N/SC:N/SI:N/SA:N/E:P",
+              "assigner": "Snyk",
+              "severity": "high",
+              "baseScore": 8.3,
+              "cvssVersion": "4.0",
+              "modificationTime": "2026-04-26T09:59:46.859342Z"
+            },
+            {
+              "type": "secondary",
+              "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:H/A:N/E:P",
+              "assigner": "Snyk",
+              "severity": "medium",
+              "baseScore": 6.5,
+              "cvssVersion": "3.1",
+              "modificationTime": "2026-04-26T09:59:46.859342Z"
+            }
+          ],
+          "description": "## Overview\n[axios](https://www.npmjs.com/package/axios) is a promise-based HTTP client for the browser and Node.js.\n\nAffected versions of this package are vulnerable to Improperly Controlled Modification of Dynamically-Determined Object Attributes through the `transformResponse` and request serialization paths in the defaults configuration. An attacker can influence JSON parsing and request handling by supplying a crafted object with inherited `parseReviver`, `responseType`, `transitional`, `env`, or `formSerializer` properties, causing Axios to read attacker-controlled prototype values during response parsing or form encoding. This can lead to malformed response processing, unexpected parser behavior, and application-level data corruption or denial-of-service in code that passes untrusted config objects to Axios.\n## Remediation\nUpgrade `axios` to version 1.15.2 or higher.\n## References\n- [GitHub Commit](https://github.com/axios/axios/commit/70302b6c9008b3d5242c9685a4c01151e53a4c74)\n- [Maintainer's Advisory](https://github.com/axios/axios/security/advisories/GHSA-3w6x-2g7m-8v23)\n",
+          "epssDetails": {
+            "percentile": "0.08469",
+            "probability": "0.00030",
+            "modelVersion": "v2025.03.14"
+          },
+          "identifiers": {
+            "CVE": [
+              "CVE-2026-42044"
+            ],
+            "CWE": [
+              "CWE-915"
+            ],
+            "GHSA": [
+              "GHSA-3w6x-2g7m-8v23"
+            ]
+          },
+          "packageName": "axios",
+          "proprietary": false,
+          "creationTime": "2026-04-26T09:59:46.630829Z",
+          "functions_new": [],
+          "alternativeIds": [],
+          "disclosureTime": "2026-04-24T19:20:25.586000Z",
+          "exploitDetails": {
+            "sources": [
+              "Snyk"
+            ],
+            "maturityLevels": [
+              {
+                "type": "secondary",
+                "level": "Proof of Concept",
+                "format": "CVSSv3"
+              },
+              {
+                "type": "primary",
+                "level": "Proof of Concept",
+                "format": "CVSSv4"
+              }
+            ]
+          },
+          "packageManager": "npm",
+          "publicationTime": "2026-04-26T09:59:46.824443Z",
+          "severityBasedOn": "CVSS",
+          "modificationTime": "2026-04-26T09:59:46.859342Z",
+          "socialTrendAlert": false,
+          "packagePopularityRank": 99,
+          "from": [
+            "frontend@0.0.0",
+            "@walletconnect/ethereum-provider@2.23.9",
+            "@reown/appkit@1.8.17-wc-circular-dependencies-fix.0",
+            "@reown/appkit-pay@1.8.17-wc-circular-dependencies-fix.0",
+            "@reown/appkit-utils@1.8.17-wc-circular-dependencies-fix.0",
+            "@base-org/account@2.4.0",
+            "@coinbase/cdp-sdk@1.46.1",
+            "axios@1.15.1"
+          ],
+          "upgradePath": [],
+          "isUpgradable": false,
+          "isPatchable": false,
+          "isPinnable": false,
+          "isRuntime": false,
+          "name": "axios",
+          "version": "1.15.1",
+          "severityWithCritical": "high"
+        }
+      ],
+      "upgrade": {},
+      "patch": {},
+      "ignore": {},
+      "pin": {}
+    },
+    "filesystemPolicy": false,
+    "filtered": {
+      "ignore": [],
+      "patch": []
+    },
+    "uniqueCount": 1,
+    "projectName": "frontend",
+    "foundProjectCount": 2,
+    "displayTargetFile": "frontend/package-lock.json",
+    "hasUnknownVersions": false,
+    "path": "/home/runner/work/nodeauth-worker-dev/nodeauth-worker-dev"
+  }
+]
