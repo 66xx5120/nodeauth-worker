@@ -20495,14 +20495,11 @@ var Hono2 = class extends Hono {
 
 // node_modules/hono/dist/middleware/cors/index.js
 var cors = (options) => {
-  const defaults = {
+  const opts = {
     origin: "*",
     allowMethods: ["GET", "HEAD", "PUT", "POST", "DELETE", "PATCH"],
     allowHeaders: [],
-    exposeHeaders: []
-  };
-  const opts = {
-    ...defaults,
+    exposeHeaders: [],
     ...options
   };
   const findAllowOrigin = ((optsOrigin) => {
