@@ -22570,11 +22570,15 @@ var SessionRepository = class {
     await this.db.delete(authSessions4).where(conditions);
     return countRes.length;
   }
-  async updateLastActive(sessionId, ipAddress, timestamp3) {
-    const result = await this.db.update(authSessions4).set({
+  async updateLastActive(sessionId, ipAddress, timestamp3, deviceType) {
+    const updateData = {
       lastActiveAt: timestamp3,
       ipAddress
-    }).where(eq(authSessions4.id, sessionId)).execute();
+    };
+    if (deviceType) {
+      updateData.deviceType = deviceType;
+    }
+    const result = await this.db.update(authSessions4).set(updateData).where(eq(authSessions4.id, sessionId)).execute();
     return result.success;
   }
   async cleanupExpired(cutoffTimestamp) {
@@ -22588,20 +22592,26 @@ var SessionRepository = class {
 // src/shared/utils/ua.ts
 function parseUserAgent(ua) {
   if (!ua || ua === "Unknown Device") return "Unknown Device";
-  const dt2 = ua.toLowerCase();
+  let isExtension = false;
+  let actualUa = ua;
+  if (ua.startsWith("NodeAuthExtension/")) {
+    isExtension = true;
+    actualUa = ua.replace("NodeAuthExtension/", "") || "Unknown";
+  }
+  const dt2 = actualUa.toLowerCase();
   let os = "Unknown OS";
   let osVersion = "";
   if (dt2.includes("iphone")) {
     os = "iPhone";
-    const match2 = ua.match(/OS (\d+[_.\d]+)/i);
+    const match2 = actualUa.match(/OS (\d+[_.\d]+)/i);
     if (match2) osVersion = match2[1].replace(/_/g, ".");
   } else if (dt2.includes("ipad")) {
     os = "iPad";
-    const match2 = ua.match(/OS (\d+[_.\d]+)/i);
+    const match2 = actualUa.match(/OS (\d+[_.\d]+)/i);
     if (match2) osVersion = match2[1].replace(/_/g, ".");
   } else if (dt2.includes("android")) {
     os = "Android";
-    const match2 = ua.match(/Android (\d+)/i);
+    const match2 = actualUa.match(/Android (\d+)/i);
     if (match2) osVersion = match2[1];
   } else if (dt2.includes("windows nt")) {
     os = "Windows";
@@ -22611,7 +22621,7 @@ function parseUserAgent(ua) {
     else if (dt2.includes("nt 6.1")) osVersion = "7";
   } else if (dt2.includes("macintosh")) {
     os = "macOS";
-    const match2 = ua.match(/Mac OS X (\d+[_.\d]+)/i);
+    const match2 = actualUa.match(/Mac OS X (\d+[_.\d]+)/i);
     if (match2) osVersion = match2[1].replace(/_/g, ".");
   } else if (dt2.includes("linux")) {
     os = "Linux";
@@ -22625,6 +22635,9 @@ function parseUserAgent(ua) {
   else if (dt2.includes("opios/")) browser = "Opera";
   else if (dt2.includes("safari/") && !dt2.includes("chrome/") && !dt2.includes("crios/") && !dt2.includes("fxios/") && !dt2.includes("edgios/") && !dt2.includes("opios/") && !dt2.includes("chromium/")) browser = "Safari";
   const osFull = osVersion ? `${os} ${osVersion}` : os;
+  if (isExtension) {
+    return `${browser} NodeAuth Extension on ${osFull}`;
+  }
   return `${browser} on ${osFull}`;
 }
 
@@ -22732,7 +22745,7 @@ var SessionService = class {
     if (deviceId) {
       const existing = await this.repo.findSessionByDevice(userId, deviceId);
       if (existing) {
-        await this.repo.updateLastActive(existing.id, ipAddress, now);
+        await this.repo.updateLastActive(existing.id, ipAddress, now, typeStr);
         return existing.id;
       }
     }
@@ -22819,14 +22832,24 @@ var SessionService = class {
 
 // src/shared/middleware/auth.ts
 async function authMiddleware(c2, next) {
-  const token = getCookie(c2, "auth_token");
+  const authHeader = c2.req.header("Authorization");
+  let token = "";
+  let isBearer = false;
+  if (authHeader && authHeader.startsWith("Bearer ")) {
+    token = authHeader.slice(7);
+    isBearer = true;
+  } else {
+    token = getCookie(c2, "auth_token") || "";
+  }
   if (!token) {
     throw new AppError("no_session", 401);
   }
-  const csrfCookie = getCookie(c2, "csrf_token");
-  const csrfHeader = c2.req.header("X-CSRF-Token");
-  if (!csrfCookie || !csrfHeader || csrfCookie !== csrfHeader) {
-    throw new AppError("csrf_mismatch", 403);
+  if (!isBearer) {
+    const csrfCookie = getCookie(c2, "csrf_token");
+    const csrfHeader = c2.req.header("X-CSRF-Token");
+    if (!csrfCookie || !csrfHeader || csrfCookie !== csrfHeader) {
+      throw new AppError("csrf_mismatch", 403);
+    }
   }
   const payload = await verifySecureJWT(token, c2.env.JWT_SECRET);
   if (!payload || !payload.userInfo) {
@@ -46605,6 +46628,47 @@ auth.delete("/sessions/:id", authMiddleware, async (c2) => {
   }
   await service.deleteSession(user.email || user.id, targetSessionId || "", currentSessionId);
   return new Response(null, { status: 204 });
+});
+auth.post("/extension-session", authMiddleware, rateLimit({
+  windowMs: 60 * 1e3,
+  // 1分钟内限制触发
+  max: 5
+  // 同一 IP 最多尝试 5 次配对，防止数据库垃圾轰炸
+}), async (c2) => {
+  const user = c2.get("user");
+  const body = await c2.req.json();
+  const clientIp = c2.req.header("CF-Connecting-IP") || "unknown";
+  let deviceId = body?.deviceId;
+  if (typeof deviceId === "string" && deviceId.length > 64) {
+    deviceId = deviceId.substring(0, 64);
+  } else if (!deviceId || typeof deviceId !== "string") {
+    deviceId = crypto.randomUUID();
+  }
+  const service = getSessionService(c2);
+  const userAgent = c2.req.header("User-Agent") || "";
+  const sessionId = await service.createSession(
+    user.email || user.id,
+    `NodeAuthExtension/${userAgent}`,
+    clientIp,
+    deviceId,
+    "extension"
+  );
+  const payload = {
+    sessionId,
+    userInfo: {
+      id: user.id,
+      username: user.username,
+      email: user.email,
+      avatar: user.avatar,
+      provider: user.provider
+    }
+  };
+  const { generateSecureJWT: generateSecureJWT2 } = await Promise.resolve().then(() => (init_crypto(), crypto_exports));
+  const token = await generateSecureJWT2(payload, c2.env.JWT_SECRET || "");
+  return c2.json({
+    success: true,
+    token
+  });
 });
 var authRoutes_default = auth;
 
